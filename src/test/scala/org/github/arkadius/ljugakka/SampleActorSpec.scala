@@ -32,8 +32,8 @@ class SampleActorSpec extends TestKit(ActorSystem("ljug")) with FlatSpecLike wit
     val actor = system.actorOf(Props(classOf[SampleActor]))
 
     When("was sent command to add even or odd in few threads")
-    val count = 10
-    val futures = count times {
+    val n = 10
+    val futures = n times {
       Future {
         actor ! AddEvenOrOdd
       }
@@ -45,7 +45,7 @@ class SampleActorSpec extends TestKit(ActorSystem("ljug")) with FlatSpecLike wit
     actor ! ToString
 
     Then("actor should reply with alternately true and false")
-    expectMsg((count / 2).times("01").mkString(""))
+    expectMsg((n / 2).times("01").mkString(""))
 
     ()
   }

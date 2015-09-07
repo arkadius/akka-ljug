@@ -30,8 +30,8 @@ class SampleMonitorSpec extends FlatSpec with GivenWhenThen with Matchers {
     val monitor = new SampleMonitor
 
     When("was added even or odd in few threads")
-    val count = 10
-    val futures = count times {
+    val n = 10
+    val futures = n times {
       Future {
         monitor.addEvenOrOdd()
       }
@@ -40,7 +40,7 @@ class SampleMonitorSpec extends FlatSpec with GivenWhenThen with Matchers {
     Await.result(sequenced, 10 seconds)
 
     Then("monitor should contains alternately true and false")
-    monitor.toString shouldEqual (count / 2).times("01").mkString("")
+    monitor.toString shouldEqual (n / 2).times("01").mkString("")
   }
 
 }
