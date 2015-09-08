@@ -23,12 +23,9 @@ class SampleMonitor {
   private val list = collection.mutable.ArrayBuffer[Boolean]()
 
   def addEvenOrOdd(): Unit = {
-    val isEven = list.size % 2 == 0
+    val willBeEven = list.size % 2 == 0
     Thread.sleep(random.nextInt(100))
-    if (isEven)
-      list += true
-    else
-      list += false
+    list += willBeEven
   }
 
   override def toString = {

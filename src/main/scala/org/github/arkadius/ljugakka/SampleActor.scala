@@ -26,12 +26,9 @@ class SampleActor extends Actor {
   
   override def receive: Receive = {
     case AddEvenOrOdd =>
-      val isEven = list.size % 2 == 0
+      val willBeEven = list.size % 2 == 0
       Thread.sleep(random.nextInt(100))
-      if (isEven)
-        list += true
-      else
-        list += false
+      list += willBeEven
     case ToString =>
       sender() ! list.map {
         case true => "0"
