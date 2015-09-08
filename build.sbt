@@ -23,12 +23,14 @@ libraryDependencies ++= {
   val akkaV = "2.4.0-RC2"
   val logbackV = "1.1.3"
   val scalaTestV = "3.0.0-M8"
+  val scalaCheckV = "1.12.4"
   Seq(
     "com.typesafe.akka"       %% "akka-actor"                    % akkaV,
     "com.typesafe.akka"       %% "akka-agent"                    % akkaV,
-    "com.typesafe.akka"       %% "akka-slf4j"                    % akkaV,
     "org.scalatest"           %% "scalatest"                     % scalaTestV    % "test",
-    "com.typesafe.akka"       %% "akka-testkit"                  % akkaV,
+    "org.scalacheck"          %% "scalacheck"                    % scalaCheckV   % "test",
+    "com.typesafe.akka"       %% "akka-testkit"                  % akkaV         % "test",
+    "com.typesafe.akka"       %% "akka-slf4j"                    % akkaV         % "test",
     "ch.qos.logback"           % "logback-classic"               % logbackV      % "test"
   )
 }
